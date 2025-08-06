@@ -98,9 +98,21 @@
     <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-2xl font-bold text-center mb-4">Become a Praying Partner</h2>
     <p class="text-center mb-6">Join our global mission through prayer and spiritually back our efforts worldwide.</p>
-    <div class="text-center">
-      <a href="#" class="bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">Join as a Praying Partner</a>
-    </div>
+    <form id="prayer-form" class="max-w-md mx-auto bg-white p-6 rounded shadow">
+  <div class="mb-4">
+    <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
+  </div>
+  <div class="mb-4">
+    <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
+  </div>
+  <div class="mb-4">
+    <input type="tel" name="phoneNumber" placeholder="Phone Number" required class="w-full p-3 border rounded" />
+  </div>
+  <button type="submit" class="w-full bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
+    Sign Up to Pray ✨
+  </button>
+  <p id="prayer-success" class="text-green-600 text-center mt-4 hidden">✅ Thank you for joining our prayer team!</p>
+</form>
   </section>
 
   <!-- Partner Section -->
