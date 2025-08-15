@@ -281,16 +281,17 @@
 
 <!-- JavaScript -->
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1f1q6r0giPocKlyKQ1nQbGs4cZbtoFl2hUzhC38FvSwqlXFxIX4KJpwFaEOYE6aC68w/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlmu779p_OLQrm-y4Nq0Djg33ax9_-TUuWicxzFFWb2xuIyR3yR0lXbckDBiORDqs_PQ/exec";
 
 function submitForm(event, type) {
   event.preventDefault();
-  
   const form = event.target;
   const formData = new FormData(form);
+
+  // Convert FormData to JSON and include the type
   const data = Object.fromEntries(formData);
-  data.type = type; // which sheet tab to send to
-  
+  data.type = type; // "praying", "travel", "donating"
+
   fetch(SCRIPT_URL, {
     method: "POST",
     body: JSON.stringify(data),
@@ -300,13 +301,22 @@ function submitForm(event, type) {
   .then(response => {
     console.log("Success!", response);
     form.reset();
+
+    // Show success message
     const successMsg = form.parentElement.previousElementSibling;
     successMsg.style.opacity = "1";
     successMsg.style.transform = "translateY(0)";
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+      successMsg.style.opacity = "0";
+      successMsg.style.transform = "translateY(1rem)";
+    }, 3000);
   })
   .catch(err => console.error("Error!", err));
 }
 </script>
+
 
   <!-- Unified Class-based Script -->
   <script>
