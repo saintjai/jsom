@@ -245,25 +245,35 @@
       ✅ Thank you! Please use the above info to donate.
     </p>
 
-    <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
-      <form onsubmit="submitForm(event, 'giving')" class="max-w-md mx-auto bg-white p-6 rounded shadow">
-        <div class="mb-4">
-          <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="amount" placeholder="Donation Amount" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="notes" placeholder="Notes (optional)" class="w-full p-3 border rounded" />
-        </div>
-        <button type="submit" class="w-full bg-blue-700 text-white px-6 py-3 rounded font-semibold hover:bg-blue-800">
-          Submit 💙
-        </button>
-      </form>
+    <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out mt-6">
+  <form onsubmit="submitForm(event, 'praying')" class="max-w-md mx-auto bg-white p-6 rounded shadow">
+
+    <!-- Banking Info -->
+    <div class="mb-6 text-sm text-gray-800">
+      <p class="font-bold">Jesse Sackey Outreach Ministries</p>
+      <p>CALBANK GH LTD - Takoradi Harbour</p>
+      <p class="mt-2"><strong>Ghana Cedi Account:</strong> 1400005689898</p>
+      <p><strong>US Dollar Account:</strong> 1400008271037</p>
+      <p><strong>ACCCGHAC</strong></p>
+      <p><strong>Short Code:</strong> 140403</p>
     </div>
+
+    <!-- Form Fields -->
+    <div class="mb-4">
+      <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
+    </div>
+    <div class="mb-4">
+      <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
+    </div>
+    <div class="mb-4 flex gap-2">
+      <input type="tel" name="areaCode" placeholder="Area Code" required class="w-1/3 p-3 border rounded" />
+      <input type="tel" name="phoneNumber" placeholder="Phone Number" required class="w-2/3 p-3 border rounded" />
+    </div>
+
+    <button type="submit" class="w-full bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
+      Submit 🙏
+    </button>
+  </form>
   </div>
 </section>
 
