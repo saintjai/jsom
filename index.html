@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Worldwide Christian Network</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
@@ -20,13 +19,13 @@
     </div>
   </header>
 
-  <!-- Mission Section -->
+    <!-- Mission Section -->
   <section class="max-w-4xl mx-auto px-4 py-12">
     <h2 class="text-2xl font-bold text-center mb-4">Our Mission</h2>
     <p class="text-center text-gray-700">We exist to proclaim the name of Jesus Christ to every nation, equip believers, and support ministries worldwide. Our foundation is built on faith, love, and the Great Commission (Matthew 28:19).</p>
   </section>
 
-  <!-- Photo Highlights -->
+    <!-- Photo Highlights -->
   <section class="py-12 bg-gray-100">
     <div class="max-w-4xl mx-auto px-4"
          x-data="{ current: 0, images: [
@@ -53,6 +52,7 @@
     </div>
   </section>
 
+  
   <!-- Global Reach -->
   <section class="bg-gray-100 py-12">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -60,190 +60,163 @@
       <p>Active in 45+ countries, training pastors, supporting orphans, and planting churches.</p>
     </div>
   </section>
-
+  
   <!-- Praying Partner Section -->
-<section id="partner" class="bg-yellow-100 py-12">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl font-bold mb-4">Become a Praying Partner</h2>
-    <p class="mb-6">Join our global mission through prayer and spiritually back our efforts worldwide.</p>
+  <section class="bg-yellow-100 py-12 section">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-4">Become a Praying Partner</h2>
+      <p class="mb-6">Join our global mission through prayer and spiritually back our efforts worldwide.</p>
 
-    <button class="toggle-btn bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
-      Become a Praying Partner
-    </button>
+      <button class="toggle-btn bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
+        Become a Praying Partner
+      </button>
 
-    <p class="success-msg text-green-600 mt-4 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out">
-      ✅ Thank you for joining our prayer team!
-    </p>
+      <p class="success-msg text-green-600 mt-4 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out">
+        ✅ Thank you for joining our prayer team!
+      </p>
 
-    <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out mt-6">
-      <form class="max-w-md mx-auto bg-white p-6 rounded shadow">
-        <div class="mb-4">
-          <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4 flex gap-2">
-          <input type="tel" name="areaCode" placeholder="Area Code" required class="w-1/3 p-3 border rounded" />
-          <input type="tel" name="phoneNumber" placeholder="Phone Number" required class="w-2/3 p-3 border rounded" />
-        </div>
-        <button type="submit" class="w-full bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
-          Submit 🙏
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Travelling Partner Section -->
-<section id="travel" class="bg-green-50 py-12">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl font-bold mb-4">Become a Travelling Partner</h2>
-    <p class="mb-6">Join us as a travelling partner to spread the mission across cities and countries worldwide.</p>
-
-    <button class="toggle-btn bg-green-700 text-white px-6 py-3 rounded font-semibold hover:bg-green-800">
-      Become a Travelling Partner
-    </button>
-
-    <p class="success-msg text-green-800 mt-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out">
-      ✅ Thank you for joining our travelling partner team!
-    </p>
-
-    <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
-      <form class="max-w-md mx-auto bg-white p-6 rounded shadow">
-        <div class="mb-4">
-          <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="country" placeholder="Country" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="city" placeholder="City" required class="w-full p-3 border rounded" />
-        </div>
-        <button type="submit" class="w-full bg-green-700 text-white px-6 py-3 rounded font-semibold hover:bg-green-800">
-          Submit ✈️
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Giving Partner Section -->
-<section id="donate" class="bg-blue-50 py-12">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl font-bold mb-4">Become a Giving Partner</h2>
-    <p class="mb-6">Your donation will help us reach more souls and transform more lives through the love of Christ.</p>
-
-    <button class="toggle-btn bg-blue-700 text-white px-6 py-3 rounded font-semibold hover:bg-blue-800">
-      Join as a Donating Partner
-    </button>
-
-    <p class="success-msg text-green-800 mt-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out">
-      ✅ Thank you! Please use the above info to donate.
-    </p>
-
-    <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6 text-left">
-      <div class="bg-white p-6 rounded shadow">
-        <p class="mb-2"><strong>Giving Options:</strong></p>
-        <p class="mb-2">Jesse Sackey Outreach Ministries</p>
-        <p class="mb-2">CALBANK GH LTD - Takoradi Harbour</p>
-        <p class="mb-2"><strong>Ghana Cedi Amount:</strong> 1400005689898</p>
-        <p class="mb-2"><strong>US Dollar Amount:</strong> 1400008271037</p>
-        <p class="mb-2"><strong>ACCCGHAC</strong></p>
-        <p class="mb-2"><strong>Short Code:</strong> 140403</p>
+      <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out mt-6">
+        <form class="max-w-md mx-auto bg-white p-6 rounded shadow">
+          <div class="mb-4">
+            <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
+          </div>
+          <div class="mb-4">
+            <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
+          </div>
+          <div class="mb-4 flex gap-2">
+            <input type="tel" name="areaCode" placeholder="Area Code" required class="w-1/3 p-3 border rounded" />
+            <input type="tel" name="phoneNumber" placeholder="Phone Number" required class="w-2/3 p-3 border rounded" />
+          </div>
+          <button type="submit" class="w-full bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
+            Submit 🙏
+          </button>
+        </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center py-6 mt-12">
-    <p>&copy; 2025 Worldwide Christian Network. All rights reserved.</p>
-    <div class="mt-2">
-      <a href="#" class="underline text-sm">Privacy Policy</a> | 
-      <a href="#" class="underline text-sm">Contact Us</a>
+  <!-- Travelling Partner Section -->
+  <section class="bg-green-50 py-12 section">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-4">Become a Travelling Partner</h2>
+      <p class="mb-6">Join us as a travelling partner to spread the mission across cities and countries worldwide.</p>
+
+      <button class="toggle-btn bg-green-700 text-white px-6 py-3 rounded font-semibold hover:bg-green-800">
+        Become a Travelling Partner
+      </button>
+
+      <p class="success-msg text-green-800 mt-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out">
+        ✅ Thank you for joining our travelling partner team!
+      </p>
+
+      <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
+        <form class="max-w-md mx-auto bg-white p-6 rounded shadow">
+          <div class="mb-4">
+            <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
+          </div>
+          <div class="mb-4">
+            <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
+          </div>
+          <div class="mb-4">
+            <input type="text" name="country" placeholder="Country" required class="w-full p-3 border rounded" />
+          </div>
+          <div class="mb-4">
+            <input type="text" name="city" placeholder="City" required class="w-full p-3 border rounded" />
+          </div>
+          <button type="submit" class="w-full bg-green-700 text-white px-6 py-3 rounded font-semibold hover:bg-green-800">
+            Submit ✈️
+          </button>
+        </form>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- Unified Toggle Script -->
+  <!-- Giving Partner Section -->
+  <section class="bg-blue-50 py-12 section">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-4">Become a Giving Partner</h2>
+      <p class="mb-6">Your donation will help us reach more souls and transform more lives through the love of Christ.</p>
+
+      <button class="toggle-btn bg-blue-700 text-white px-6 py-3 rounded font-semibold hover:bg-blue-800">
+        Join as a Donating Partner
+      </button>
+
+      <p class="success-msg text-green-800 mt-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out">
+        ✅ Thank you! Please use the above info to donate.
+      </p>
+
+      <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6 text-left">
+        <div class="bg-white p-6 rounded shadow">
+          <p class="mb-2"><strong>Giving Options:</strong></p>
+          <p class="mb-2">Jesse Sackey Outreach Ministries</p>
+          <p class="mb-2">CALBANK GH LTD - Takoradi Harbour</p>
+          <p class="mb-2"><strong>Ghana Cedi Amount:</strong> 1400005689898</p>
+          <p class="mb-2"><strong>US Dollar Amount:</strong> 1400008271037</p>
+          <p class="mb-2"><strong>ACCCGHAC</strong></p>
+          <p class="mb-2"><strong>Short Code:</strong> 140403</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unified Class-based Script -->
   <script>
-    // Unified collapsible sections
-    function closeSection(wrapper, button, defaultText) {
-      wrapper.style.transition = "max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease";
-      wrapper.style.maxHeight = "0px";
-      wrapper.style.opacity = "0";
-      wrapper.style.transform = "translateY(1rem)";
-      button.textContent = defaultText;
-    }
-
-    const sections = [
-      {
-        wrapper: document.getElementById('form-wrapper'),
-        button: document.getElementById('toggle-form-btn'),
-        form: document.getElementById('prayer-form'),
-        success: document.getElementById('prayer-success-top'),
-        defaultText: "Become a Praying Partner",
-        successMessage: "✅ Thank you for joining our prayer team!"
-      },
-      {
-        wrapper: document.getElementById('travel-form-wrapper'),
-        button: document.getElementById('toggle-travel-btn'),
-        form: document.getElementById('travel-form'),
-        success: document.getElementById('travel-success'),
-        defaultText: "Become a Travelling Partner",
-        successMessage: "✅ Thank you for joining our travelling partner team!"
-      },
-      {
-        wrapper: document.getElementById('donate-info-wrapper'),
-        button: document.getElementById('toggle-donate-btn'),
-        defaultText: "Join as a Donating Partner"
-      }
-    ];
+    const sections = document.querySelectorAll('.section');
 
     sections.forEach(section => {
-      section.button.addEventListener('click', () => {
-        const isOpen = section.wrapper.style.maxHeight && section.wrapper.style.maxHeight !== "0px";
-        sections.forEach(s => { if (s !== section) closeSection(s.wrapper, s.button, s.defaultText) });
-        if (isOpen) closeSection(section.wrapper, section.button, section.defaultText);
-        else {
-          const contentHeight = section.wrapper.scrollHeight;
-          section.wrapper.style.transition = "max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease";
-          section.wrapper.style.maxHeight = contentHeight + "px";
-          section.wrapper.style.opacity = "1";
-          section.wrapper.style.transform = "translateY(0)";
-          section.button.textContent = section.defaultText.includes("Praying") || section.defaultText.includes("Travelling") ? "Close Form ❌" : "Close Account Info ❌";
+      const button = section.querySelector('.toggle-btn');
+      const wrapper = section.querySelector('.form-wrapper');
+      const success = section.querySelector('.success-msg');
+      const defaultText = button.textContent;
+
+      button.addEventListener('click', () => {
+        const isOpen = wrapper.style.maxHeight && wrapper.style.maxHeight !== "0px";
+
+        // Close all sections first
+        sections.forEach(s => {
+          const w = s.querySelector('.form-wrapper');
+          const b = s.querySelector('.toggle-btn');
+          if (w !== wrapper) {
+            w.style.maxHeight = "0px";
+            w.style.opacity = "0";
+            w.style.transform = "translateY(1rem)";
+            b.textContent = b.textContent.includes("Donating") ? "Join as a Donating Partner" : b.textContent.includes("Travel") ? "Become a Travelling Partner" : "Become a Praying Partner";
+          }
+        });
+
+        // Toggle current section
+        if (isOpen) {
+          wrapper.style.maxHeight = "0px";
+          wrapper.style.opacity = "0";
+          wrapper.style.transform = "translateY(1rem)";
+          button.textContent = defaultText;
+        } else {
+          wrapper.style.maxHeight = wrapper.scrollHeight + "px";
+          wrapper.style.opacity = "1";
+          wrapper.style.transform = "translateY(0)";
+          button.textContent = defaultText.includes("Donating") ? "Close Account Info ❌" : "Close Form ❌";
         }
       });
-    });
 
-    sections.forEach(section => {
-      if (section.form) {
-        section.form.addEventListener('submit', e => {
+      const form = wrapper.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', e => {
           e.preventDefault();
           setTimeout(() => {
-            closeSection(section.wrapper, section.button, section.defaultText);
-            section.success.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-            section.success.textContent = section.successMessage;
-            section.success.style.opacity = "1";
-            section.success.style.transform = "translateY(0)";
+            wrapper.style.maxHeight = "0px";
+            wrapper.style.opacity = "0";
+            wrapper.style.transform = "translateY(1rem)";
+            button.textContent = defaultText;
+
+            success.style.opacity = "1";
+            success.style.transform = "translateY(0)";
             setTimeout(() => {
-              section.success.style.opacity = "0";
-              section.success.style.transform = "translateY(1rem)";
+              success.style.opacity = "0";
+              success.style.transform = "translateY(1rem)";
             }, 3000);
           }, 200);
         });
       }
-    });
-
-    window.addEventListener('resize', () => {
-      sections.forEach(section => {
-        if (section.wrapper.style.maxHeight && section.wrapper.style.maxHeight !== "0px") {
-          section.wrapper.style.maxHeight = section.wrapper.scrollHeight + "px";
-        }
-      });
     });
   </script>
 
