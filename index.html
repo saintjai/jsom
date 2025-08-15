@@ -113,20 +113,20 @@
     <!-- Collapsible Form Container -->
     <div id="form-wrapper" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0">
       <form id="prayer-form" class="max-w-md mx-auto bg-white p-6 rounded shadow mt-6">
-  <div class="mb-4">
-    <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
-  </div>
-  <div class="mb-4">
-    <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
-  </div>
-  <div class="mb-4 flex gap-2">
-    <input type="tel" name="areaCode" placeholder="Area Code" required class="w-1/3 p-3 border rounded" />
-    <input type="tel" name="phoneNumber" placeholder="Phone Number" required class="w-2/3 p-3 border rounded" />
-  </div>
-  <button type="submit" class="w-full bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
-    Submit 🙏
-  </button>
-</form>
+        <div class="mb-4">
+          <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
+        </div>
+        <div class="mb-4">
+          <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
+        </div>
+        <div class="mb-4 flex gap-2">
+          <input type="tel" name="areaCode" placeholder="Area Code" required class="w-1/3 p-3 border rounded" />
+          <input type="tel" name="phoneNumber" placeholder="Phone Number" required class="w-2/3 p-3 border rounded" />
+        </div>
+        <button type="submit" class="w-full bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">
+          Submit 🙏
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -173,22 +173,138 @@
 
 
   <!-- Partner Section -->
-  <section id="partner" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-bold text-center mb-4">Become a Giving Partner</h2>
-    <p class="text-center mb-6">Your donation will help us reach more souls and transform more lives through the love of Christ.</p>
-    <div class="text-center">
-      <a href="#" class="bg-blue-700 text-white px-6 py-3 rounded hover:bg-blue-800">Join as a Donating Partner</a>
+  <section id="travel" class="bg-green-50 py-12">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-2xl font-bold text-center mb-4">Become a Travelling Partner</h2>
+    <p class="text-center mb-6">Join us as a travelling partner to spread the mission across cities and countries worldwide.</p>
+
+    <!-- Toggle Button -->
+    <button id="toggle-travel-btn" class="bg-green-700 text-white px-6 py-3 rounded font-semibold hover:bg-green-800">
+      Become a Travelling Partner
+    </button>
+
+    <!-- Success Message (under button) -->
+    <p id="travel-success" 
+       class="text-green-800 text-center mt-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out">
+      ✅ Thank you for joining our travelling partner team!
+    </p>
+
+    <!-- Collapsible Form Container -->
+    <div id="travel-form-wrapper" class="overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
+      <form id="travel-form" class="max-w-md mx-auto bg-white p-6 rounded shadow mt-6">
+        <div class="mb-4">
+          <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
+        </div>
+        <div class="mb-4">
+          <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
+        </div>
+        <div class="mb-4">
+          <input type="text" name="country" placeholder="Country" required class="w-full p-3 border rounded" />
+        </div>
+        <div class="mb-4">
+          <input type="text" name="city" placeholder="City" required class="w-full p-3 border rounded" />
+        </div>
+        <button type="submit" class="w-full bg-green-700 text-white px-6 py-3 rounded font-semibold hover:bg-green-800">
+          Submit ✈️
+        </button>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  const travelBtn = document.getElementById('toggle-travel-btn');
+  const travelWrapper = document.getElementById('travel-form-wrapper');
+  const travelForm = document.getElementById('travel-form');
+  const travelSuccess = document.getElementById('travel-success');
+
+  function closeTravelForm() {
+    travelWrapper.style.maxHeight = "0px";
+    travelWrapper.style.opacity = "0";
+    travelWrapper.style.transform = "translateY(1rem)";
+    travelBtn.textContent = "Become a Travelling Partner";
+  }
+
+  travelBtn.addEventListener('click', () => {
+    if (travelWrapper.style.maxHeight && travelWrapper.style.maxHeight !== "0px") {
+      closeTravelForm();
+    } else {
+      travelWrapper.style.maxHeight = travelForm.scrollHeight + "px";
+      travelWrapper.style.opacity = "1";
+      travelWrapper.style.transform = "translateY(0)";
+      travelBtn.textContent = "Close Form ❌";
+    }
+  });
+
+  travelForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    setTimeout(() => {
+      closeTravelForm();
+
+      // Fade + slide in success message
+      travelSuccess.style.opacity = "1";
+      travelSuccess.style.transform = "translateY(0)";
+
+      // Fade + slide out after 3 seconds
+      setTimeout(() => {
+        travelSuccess.style.opacity = "0";
+        travelSuccess.style.transform = "translateY(1rem)";
+      }, 3000);
+    }, 200);
+  });
+</script>
+
 
   <!-- Giving Section -->
-  <section id="give" class="bg-yellow-100 py-12">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold mb-4">Travel with us</h2>
-      <p class="mb-6">Join us on the ground and help push the effort to save more souls. Your presence is your ultimate gift.</p>
-      <a href="https://your-paypal-or-stripe-link.com" target="_blank" class="bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600">Donate Now</a>
+  <section id="donate" class="max-w-4xl mx-auto px-4 py-12 bg-blue-50">
+  <h2 class="text-2xl font-bold text-center mb-4">Become a Giving Partner</h2>
+  <p class="text-center mb-6">Your donation will help us reach more souls and transform more lives through the love of Christ.</p>
+
+  <!-- Toggle Button -->
+  <div class="text-center">
+    <button id="toggle-donate-btn" class="bg-blue-700 text-white px-6 py-3 rounded font-semibold hover:bg-blue-800">
+      Join as a Donating Partner
+    </button>
+  </div>
+
+  <!-- Collapsible Account Info -->
+  <div id="donate-info-wrapper" class="overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
+    <div class="bg-white p-6 rounded shadow text-left">
+      <p class="mb-2"><strong>Giving Options:</strong></p>
+      <p class="mb-2">Jesse Sackey Outreach Ministries</p>
+      <p class="mb-2">CALBANK GH LTD - Takoradi Harbour</p>
+      <p class="mb-2"><strong>Ghana Cedi Amount:</strong> 1400005689898</p>
+      <p class="mb-2"><strong>US Dollar Amount:</strong> 1400008271037</p>
+      <p class="mb-2"><strong>ACCCGHAC</strong></p>
+      <p class="mb-2"><strong>Short Code:</strong> 140403</p>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  const donateBtn = document.getElementById('toggle-donate-btn');
+  const donateWrapper = document.getElementById('donate-info-wrapper');
+
+  donateBtn.addEventListener('click', () => {
+    if (donateWrapper.style.maxHeight && donateWrapper.style.maxHeight !== "0px") {
+      // Collapse: fade + slide down (back to below)
+      donateWrapper.style.opacity = "0";
+      donateWrapper.style.transform = "translateY(1rem)";
+      setTimeout(() => {
+        donateWrapper.style.maxHeight = "0px";
+      }, 500); // matches transition duration
+      donateBtn.textContent = "Join as a Donating Partner";
+    } else {
+      // Expand: fade + slide up from below
+      donateWrapper.style.maxHeight = donateWrapper.scrollHeight + "px";
+      donateWrapper.style.opacity = "1";
+      donateWrapper.style.transform = "translateY(0)";
+      donateBtn.textContent = "Close Account Info ❌";
+    }
+  });
+</script>
+
 
   
   <!-- Footer -->
