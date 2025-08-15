@@ -6,11 +6,16 @@
   <title>Jesse Sackey Outreach Ministries</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
-  <!-- Hero Section -->
-<header class="relative flex flex-col justify-center items-center text-center min-h-screen bg-blue-900 text-white px-4" x-data="{ show: false }" x-init="show = true">
+<!-- Hero Section -->
+<header class="relative flex flex-col justify-center items-center text-center min-h-[75vh] bg-blue-900 text-white px-4" x-data="{ show: false }" x-init="show = true">
 
   <!-- Background image -->
   <div class="absolute inset-0">
@@ -33,13 +38,13 @@
     </p>
     <div class="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 justify-center transition-opacity duration-1000 delay-400"
          :class="show ? 'opacity-100' : 'opacity-0'">
-      <a href="#partner" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded text-sm sm:text-base">
+      <a href="#partner" class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full text-sm sm:text-base">
         Become a Praying Partner
       </a>
-      <a href="#travel" class="bg-white text-blue-900 font-semibold px-4 py-2 rounded text-sm sm:text-base">
+      <a href="#travel" class="bg-white text-blue-900 font-semibold px-6 py-2 rounded-full text-sm sm:text-base">
         Travel with us
       </a>
-      <a href="#donate" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded text-sm sm:text-base">
+      <a href="#donate" class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded-full text-sm sm:text-base">
         Become a Giving Partner
       </a>
     </div>
@@ -158,7 +163,7 @@
   </section>
   
   <!-- Praying Partner Section -->
-<section class="bg-yellow-100 py-12 section">
+<section id="partner" class="bg-yellow-100 py-12 section">
   <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-2xl font-bold mb-4">Become a Praying Partner</h2>
     <p class="mb-6">Join our global mission through prayer and spiritually back our efforts worldwide.</p>
@@ -192,7 +197,7 @@
 </section>
 
 <!-- Travelling Partner Section -->
-<section class="bg-green-50 py-12 section">
+<section id="travel" class="bg-green-50 py-12 section">
   <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-2xl font-bold mb-4">Become a Travelling Partner</h2>
     <p class="mb-6">Join us as a travelling partner to spread the mission across cities and countries worldwide.</p>
@@ -228,7 +233,7 @@
 </section>
 
 <!-- Giving Partner Section -->
-<section class="bg-blue-50 py-12 section">
+<section id="donate" class="bg-blue-50 py-12 section">
   <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-2xl font-bold mb-4">Become a Giving Partner</h2>
     <p class="mb-6">Your donation will help us reach more souls and transform more lives through the love of Christ.</p>
