@@ -29,36 +29,99 @@
     <!-- Photo Highlights -->
 <section class="py-12 bg-gray-100">
   <div class="max-w-4xl mx-auto px-4"
-       x-data="{ current: 0, images: [
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0021.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0013.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0003.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0017.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0019.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0005.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0015.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0010.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0016.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0012.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0011.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0008.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0006.jpg',
-         'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0014.jpg'
-       ], start() { setInterval(() => { this.current = (this.current + 1) % this.images.length }, 5000) } }"
+       x-data="{
+         current: 0,
+         images: [
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0021.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0013.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0003.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0017.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0019.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0005.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0015.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0010.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0016.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0012.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0011.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0008.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0006.jpg',
+           'https://raw.githubusercontent.com/saintjai/jsom/main/images/IMG-20250815-WA0014.jpg'
+         ],
+         preloaded: [],
+         fade: false,
+         start() {
+           this.preloadImages().then(() => {
+             setInterval(() => { 
+               this.nextSlide();
+             }, 5000);
+           });
+         },
+         preloadImages() {
+           return Promise.all(this.images.map((src, index) => {
+             return new Promise((resolve) => {
+               const img = new Image();
+               img.onload = () => {
+                 this.preloaded[index] = true;
+                 resolve();
+               };
+               img.onerror = () => {
+                 // remove broken image
+                 this.images.splice(index, 1);
+                 resolve();
+               };
+               img.src = src;
+             });
+           }));
+         },
+         nextSlide() {
+           this.fade = true;
+           setTimeout(() => {
+             this.current = (this.current + 1) % this.images.length;
+             this.fade = false;
+           }, 500);
+         },
+         prevSlide() {
+           this.fade = true;
+           setTimeout(() => {
+             this.current = (this.current - 1 + this.images.length) % this.images.length;
+             this.fade = false;
+           }, 500);
+         }
+       }"
        x-init="start">
     <h2 class="text-2xl font-bold text-center mb-6">Photo Highlights</h2>
-    <div class="relative">
-      <img :src="images[current]" class="w-full h-64 object-cover rounded-lg shadow-lg transition-all duration-700" alt="Slideshow image" />
-      <button @click="current = (current - 1 + images.length) % images.length" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 rounded-r">&#8592;</button>
-      <button @click="current = (current + 1) % images.length" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 rounded-l">&#8594;</button>
+    <div class="relative overflow-hidden">
+      <template x-if="images.length > 0">
+        <img 
+          :src="images[current]" 
+          :class="fade ? 'opacity-0' : 'opacity-100'" 
+          class="w-full h-64 object-cover rounded-lg shadow-lg transition-opacity duration-500" 
+          alt="Slideshow image" 
+        />
+      </template>
+      <template x-if="images.length === 0">
+        <div class="w-full h-64 flex items-center justify-center text-gray-500">
+          No images available
+        </div>
+      </template>
+      <button @click="prevSlide()" 
+              class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 rounded-r">&#8592;
+      </button>
+      <button @click="nextSlide()" 
+              class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 rounded-l">&#8594;
+      </button>
     </div>
-    <div class="flex justify-center space-x-2 mt-4">
+    <div class="flex justify-center space-x-2 mt-4" x-show="images.length > 1">
       <template x-for="(img, index) in images" :key="index">
-        <div class="w-3 h-3 rounded-full cursor-pointer" :class="current === index ? 'bg-blue-700' : 'bg-gray-400'" @click="current = index"></div>
+        <div class="w-3 h-3 rounded-full cursor-pointer" 
+             :class="current === index ? 'bg-blue-700' : 'bg-gray-400'" 
+             @click="fade = true; setTimeout(() => { current = index; fade = false; }, 500)">
+        </div>
       </template>
     </div>
   </div>
 </section>
+
   
   <!-- Global Reach -->
   <section class="bg-gray-100 py-12">
