@@ -10,15 +10,41 @@
 <body class="bg-white text-gray-800 font-sans">
 
   <!-- Hero Section -->
-  <header class="text-center py-16 bg-blue-900 text-white">
-    <h1 class="text-4xl font-bold">Worldwide Christian Network</h1>
-    <p class="mt-4 text-lg">Spreading the Gospel Across Nations</p>
-    <div class="mt-6 space-x-4">
-      <a href="#partner" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded">Become a Praying Partner</a>
-      <a href="#travel" class="bg-white text-blue-900 font-semibold px-4 py-2 rounded">Travel with us</a>
-      <a href="#donate" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded">Become a Giving Partner</a>
+<header class="relative flex flex-col justify-center items-center text-center min-h-screen bg-blue-900 text-white px-4" x-data="{ show: false }" x-init="show = true">
+
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img src="https://raw.githubusercontent.com/saintjai/jsom/main/images/hero-background.jpg" 
+         alt="Ministry Background" 
+         class="w-full h-full object-cover">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-blue-900 bg-opacity-60"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight transition-opacity duration-1000" 
+        :class="show ? 'opacity-100' : 'opacity-0'">
+      Jesse Sackey Ministries Outreach Ministries
+    </h1>
+    <p class="mt-3 sm:mt-4 text-base sm:text-lg max-w-xl mx-auto transition-opacity duration-1000 delay-200" 
+       :class="show ? 'opacity-100' : 'opacity-0'">
+      Spreading the Gospel Across Nations
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 justify-center transition-opacity duration-1000 delay-400"
+         :class="show ? 'opacity-100' : 'opacity-0'">
+      <a href="#partner" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded text-sm sm:text-base">
+        Become a Praying Partner
+      </a>
+      <a href="#travel" class="bg-white text-blue-900 font-semibold px-4 py-2 rounded text-sm sm:text-base">
+        Travel with us
+      </a>
+      <a href="#donate" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded text-sm sm:text-base">
+        Become a Giving Partner
+      </a>
     </div>
-  </header>
+  </div>
+</header>
 
     <!-- Mission Section -->
   <section class="max-w-4xl mx-auto px-4 py-12">
