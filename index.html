@@ -172,37 +172,52 @@
       Become a Praying Partner
     </button>
 
-    <p class="success-msg text-green-600 mt-4 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out">
+    <p id="successMsg" class="text-green-600 mt-4 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out">
       ✅ Thank you for joining our prayer team!
     </p>
 
     <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out mt-6">
-      <!--<form onsubmit="submitForm(event, 'praying')" class="max-w-md mx-auto bg-white p-6 rounded shadow text-center">
-        <div class="mb-4">
-          <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4">
-          <input type="text" name="lastName" placeholder="Last Name" required class="w-full p-3 border rounded" />
-        </div>
-        <div class="mb-4 flex gap-2 justify-center">
-          <input type="tel" name="areaCode" placeholder="Area Code" required class="w-1/3 p-3 border rounded" />
-          <input type="tel" name="phoneNumber" placeholder="Phone Number" required class="w-2/3 p-3 border rounded" />
-        </div>
-        <button type="submit" class="w-full bg-yellow-500 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-600 mx-auto">
-          Submit 🙏
-        </button>
+      <form id="prayerForm"> 
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="text" name="phone" placeholder="Phone Number" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <textarea name="request" placeholder="Your Prayer Request"></textarea><br>
+        <button type="submit">Submit</button>
       </form>
-    </div> -->
-
-    <form id="prayerForm">
-      <input type="text" name="name" placeholder="Your Name" required><br>
-      <input type="text" name="phone" placeholder="Phone Number" required><br>
-      <input type="email" name="email" placeholder="Email" required><br>
-      <textarea name="request" placeholder="Your Prayer Request"></textarea><br>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   </div>
 </section>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbycF6hgVnf6aV2cIG1UpXaFKIz8CH-PkjuYZso_KgRbHWoLMau0qChwf4echBSQsgvh/exec";
+
+// Toggle button to show/hide form
+document.querySelector(".toggle-btn").addEventListener("click", () => {
+  const formWrapper = document.querySelector(".form-wrapper");
+  formWrapper.classList.toggle("max-h-0");
+  formWrapper.classList.toggle("opacity-0");
+});
+
+// Handle form submission
+document.getElementById("prayerForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.json())
+  .then(() => {
+    document.getElementById("successMsg").classList.remove("opacity-0", "-translate-y-4");
+    e.target.reset();
+  })
+  .catch(err => alert("Error: " + err));
+});
+</script>
+
 
 <!-- Travelling Partner Section -->
 <section id="travel" class="bg-green-50 py-12 section">
@@ -291,24 +306,7 @@
 </section>
 
 <!-- JavaScript -->
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbycF6hgVnf6aV2cIG1UpXaFKIz8CH-PkjuYZso_KgRbHWoLMau0qChwf4echBSQsgvh/exec";
 
-document.getElementById("prayerForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const data = Object.fromEntries(formData);
-
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json" }
-  })
-  .then(res => res.json())
-  .then(response => alert("Form submitted successfully!"))
-  .catch(err => alert("Error: " + err));
-});
-</script>
 
 
   <!-- Unified Class-based Script -->
