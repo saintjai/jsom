@@ -210,7 +210,16 @@
       ✅ Thank you for joining our travelling partner team!
     </p>
 
-    <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
+
+    <form id="prayerForm">
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="text" name="phone" placeholder="Phone Number" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <textarea name="request" placeholder="Your Prayer Request"></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
+    
+  <!--   <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
       <form onsubmit="submitForm(event, 'travel')" class="max-w-md mx-auto bg-white p-6 rounded shadow text-center">
         <div class="mb-4">
           <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
@@ -227,8 +236,8 @@
         <button type="submit" class="w-full bg-green-700 text-white px-6 py-3 rounded font-semibold hover:bg-green-800 mx-auto">
           Submit ✈️
         </button>
-      </form>
-    </div>
+      </form> 
+    </div> -->
   </div>
 </section>
 
@@ -284,40 +293,22 @@
 
 <!-- JavaScript -->
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlmu779p_OLQrm-y4Nq0Djg33ax9_-TUuWicxzFFWb2xuIyR3yR0lXbckDBiORDqs_PQ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbycF6hgVnf6aV2cIG1UpXaFKIz8CH-PkjuYZso_KgRbHWoLMau0qChwf4echBSQsgvh/exec";
 
-function submitForm(event, type) {
-  event.preventDefault();
-  const form = event.target;
-  const formData = new FormData(form);
-
-  // Convert FormData to JSON and include the type
+document.getElementById("prayerForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
   const data = Object.fromEntries(formData);
-  data.type = type; // "praying", "travel", "donating"
 
-  fetch(SCRIPT_URL, {
+  fetch(scriptURL, {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
   })
   .then(res => res.json())
-  .then(response => {
-    console.log("Success!", response);
-    form.reset();
-
-    // Show success message
-    const successMsg = form.parentElement.previousElementSibling;
-    successMsg.style.opacity = "1";
-    successMsg.style.transform = "translateY(0)";
-
-    // Hide after 3 seconds
-    setTimeout(() => {
-      successMsg.style.opacity = "0";
-      successMsg.style.transform = "translateY(1rem)";
-    }, 3000);
-  })
-  .catch(err => console.error("Error!", err));
-}
+  .then(response => alert("Form submitted successfully!"))
+  .catch(err => alert("Error: " + err));
+});
 </script>
 
 
