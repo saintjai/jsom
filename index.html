@@ -177,7 +177,7 @@
     </p>
 
     <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform -translate-y-4 transition-all duration-500 ease-in-out mt-6">
-      <form onsubmit="submitForm(event, 'praying')" class="max-w-md mx-auto bg-white p-6 rounded shadow text-center">
+      <!--<form onsubmit="submitForm(event, 'praying')" class="max-w-md mx-auto bg-white p-6 rounded shadow text-center">
         <div class="mb-4">
           <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
         </div>
@@ -192,7 +192,15 @@
           Submit 🙏
         </button>
       </form>
-    </div>
+    </div> -->
+
+    <form id="prayerForm">
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="text" name="phone" placeholder="Phone Number" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <textarea name="request" placeholder="Your Prayer Request"></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </section>
 
@@ -209,17 +217,8 @@
     <p class="success-msg text-green-800 mt-4 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out">
       ✅ Thank you for joining our travelling partner team!
     </p>
-
-
-    <form id="prayerForm">
-      <input type="text" name="name" placeholder="Your Name" required><br>
-      <input type="text" name="phone" placeholder="Phone Number" required><br>
-      <input type="email" name="email" placeholder="Email" required><br>
-      <textarea name="request" placeholder="Your Prayer Request"></textarea><br>
-      <button type="submit">Submit</button>
-    </form>
     
-  <!--   <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
+   <div class="form-wrapper overflow-hidden max-h-0 opacity-0 transform translate-y-4 transition-all duration-500 ease-in-out mt-6">
       <form onsubmit="submitForm(event, 'travel')" class="max-w-md mx-auto bg-white p-6 rounded shadow text-center">
         <div class="mb-4">
           <input type="text" name="firstName" placeholder="First Name" required class="w-full p-3 border rounded" />
@@ -237,7 +236,7 @@
           Submit ✈️
         </button>
       </form> 
-    </div> -->
+    </div> 
   </div>
 </section>
 
